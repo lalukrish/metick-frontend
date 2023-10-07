@@ -1,9 +1,10 @@
 import "./App.css";
+import ResponsiveDrawer from "./components/navbar-sidebar";
 
 function App() {
   return (
     <div className="App">
-      <h1>lets start metick</h1>
+      <ResponsiveDrawer />
     </div>
   );
 }
