@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Box, CssBaseline, Toolbar, useMediaQuery } from "@mui/material";
 import TopNavbar from "./components/navbar-topbar";
 import SideNavbar from "./components/navbar-sidebar";
-import MainRouter from "./components/main-router";
 import Dashboard from "./components/Dashboard/dashboard";
 import BlogPage from "./components/Blog/blog";
 import LatestYouGo from "./components/LatestYouGo/latest-you-go";
