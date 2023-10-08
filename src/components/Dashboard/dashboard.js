@@ -10,7 +10,7 @@ const Dashboard = () => {
   return (
     <div>
       <h1>Dashboard Page</h1>
-      <Container maxWidth="xl">
+      <Container maxWidth="lg">
         {/* <Typography variant="h4" sx={{ mb: 5 }}>
           Hi, Welcome back
         </Typography> */}
@@ -37,7 +37,7 @@ const Dashboard = () => {
           <Grid item xs={12} sm={6} md={3}>
             <AppWidgetSummary
               title="Node js"
-              total={1723315}
+              total={17233154444}
               color="#D0F2FF;"
               icon={IconExpress}
             />
