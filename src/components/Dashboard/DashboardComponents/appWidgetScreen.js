@@ -1,6 +1,6 @@
+import React from "react";
 import PropTypes from "prop-types";
 import { Card, Typography, Box, useTheme } from "@mui/material";
-import React from "react";
 
 export default function AppWidgetSummary({
   title,
