@@ -36,18 +36,23 @@ const DrawerList = () => {
       </Typography>
       <Divider />
       <List sx={{ marginTop: 10 }}>
-        {["blog", "start-career", "latest-you-go", "my-profile"].map(
-          (text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton component={Link} to={`/${text.toLowerCase()}`}>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MenuIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          )
-        )}
+        {[
+          "blog",
+          "start-career",
+          "latest-you-go",
+          "my-profile",
+          "login",
+          "signup",
+        ].map((text, index) => (
+          <ListItem key={text} disablePadding>
+            <ListItemButton component={Link} to={`/${text.toLowerCase()}`}>
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MenuIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItemButton>
+          </ListItem>
+        ))}
       </List>
     </>
   );
