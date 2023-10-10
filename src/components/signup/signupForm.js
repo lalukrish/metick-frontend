@@ -9,6 +9,8 @@ import {
   Checkbox,
   Button,
   Alert,
+  Grid,
+  Typography,
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
@@ -56,6 +58,12 @@ const SingupForm = () => {
 
   return (
     <>
+      <Typography variant="body2" sx={{ mb: 5 }}>
+        you already have an account.? {""}
+        <Link href="login" variant="subtitle2">
+          Get started
+        </Link>
+      </Typography>
       <Formik onSubmit={Register} initialValues={initialValues}>
         {({ values, handleSubmit, handleChange }) => (
           <form onSubmit={handleSubmit}>
@@ -64,70 +72,87 @@ const SingupForm = () => {
                 {status}
               </Alert>
             )}
-            <Stack spacing={2}>
-              <TextField
-                name="full_name"
-                placeholder="Full Name"
-                onChange={handleChange}
-                value={values.full_name}
-              />
-              <TextField
-                name="user_name"
-                placeholder="Username"
-                onChange={handleChange}
-                value={values.user_name}
-              />
-              <TextField
-                name="email"
-                placeholder="Email address"
-                onChange={handleChange}
-                value={values.email}
-              />
-              <TextField
-                name="phone_number"
-                placeholder="Phone Number"
-                onChange={handleChange}
-                value={values.phone_number}
-              />
-              <TextField
-                name="password"
-                placeholder="Password"
-                type={showPassword ? "text" : "password"}
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <IconButton
-                        onClick={() => setShowPassword(!showPassword)}
-                        edge="end"
-                      >
-                        {showPassword ? <VisibilityOff /> : <Visibility />}
-                      </IconButton>
-                    </InputAdornment>
-                  ),
-                }}
-                onChange={handleChange}
-                // Add your value and any other props you need
-              />
-
-              <TextField
-                name="password"
-                placeholder="Password"
-                type={showPassword ? "text" : "password"}
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <IconButton
-                        onClick={() => setShowPassword(!showPassword)}
-                        edge="end"
-                      >
-                        {showPassword ? <VisibilityOff /> : <Visibility />}
-                      </IconButton>
-                    </InputAdornment>
-                  ),
-                }}
-                onChange={handleChange}
-                // Add your value and any other props you need
-              />
+            <Stack spacing={2} sx={{ mb: 2 }}>
+              <Grid container spacing={2}>
+                <Grid item xs={12} md={6} lg={12}>
+                  <TextField
+                    name="full_name"
+                    placeholder="Full Name"
+                    onChange={handleChange}
+                    value={values.full_name}
+                    fullWidth
+                  />
+                </Grid>
+                <Grid item xs={12} md={6} lg={12}>
+                  <TextField
+                    name="user_name"
+                    placeholder="Username"
+                    onChange={handleChange}
+                    value={values.user_name}
+                    fullWidth
+                  />
+                </Grid>
+                <Grid item xs={12} md={6} lg={12}>
+                  <TextField
+                    name="email"
+                    placeholder="Email address"
+                    onChange={handleChange}
+                    value={values.email}
+                    fullWidth
+                  />
+                </Grid>
+                <Grid item xs={12} md={6} lg={12}>
+                  <TextField
+                    name="phone_number"
+                    placeholder="Phone Number"
+                    onChange={handleChange}
+                    value={values.phone_number}
+                    fullWidth
+                  />
+                </Grid>
+                <Grid item xs={12} lg={12}>
+                  <TextField
+                    fullWidth
+                    name="password"
+                    placeholder="Password"
+                    type={showPassword ? "text" : "password"}
+                    InputProps={{
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <IconButton
+                            onClick={() => setShowPassword(!showPassword)}
+                            edge="end"
+                          >
+                            {showPassword ? <VisibilityOff /> : <Visibility />}
+                          </IconButton>
+                        </InputAdornment>
+                      ),
+                    }}
+                    onChange={handleChange}
+                  />
+                </Grid>
+                <Grid item xs={12} lg={12}>
+                  <TextField
+                    fullWidth
+                    name="password"
+                    placeholder="Password"
+                    type={showPassword ? "text" : "password"}
+                    InputProps={{
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <IconButton
+                            onClick={() => setShowPassword(!showPassword)}
+                            edge="end"
+                          >
+                            {showPassword ? <VisibilityOff /> : <Visibility />}
+                          </IconButton>
+                        </InputAdornment>
+                      ),
+                    }}
+                    onChange={handleChange}
+                  />
+                </Grid>
+              </Grid>
             </Stack>
 
             <Stack
