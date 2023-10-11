@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Drawer,
   useMediaQuery, // Add this import
@@ -15,8 +15,22 @@ import {
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
+import { userProfile } from "../Redux/slices/userProfileSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const DrawerList = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(userProfile()).then((response) => {
+      console.log("hi", response);
+    });
+  }, []);
+
+  const userName = useSelector(
+    (state) => state.myprofile?.successMessage?.data?.user?.user_name
+  );
+  console.log("userProfileDetails", userName);
   return (
     <>
       <Typography
@@ -32,17 +46,17 @@ const DrawerList = () => {
         gutterBottom
         sx={{ marginLeft: 2, fontWeight: "20px", mt: 2 }}
       >
-        Mahin
+        {userName}
       </Typography>
       <Divider />
       <List sx={{ marginTop: 10 }}>
         {[
-          "blog",
+          "blog-page",
           "start-career",
           "latest-you-go",
           "my-profile",
-          "login",
-          "signup",
+          // "login",
+          // "signup",
         ].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton component={Link} to={`/${text.toLowerCase()}`}>

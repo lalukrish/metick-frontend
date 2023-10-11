@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Formik } from "formik";
 
@@ -39,17 +39,24 @@ const Signin = () => {
   );
   console.log("res", singinResponseMessage);
 
+  const [loginMessage, setLoginMessage] = useState("");
   const Login = (values) => {
     setUserData(values);
     dispatch(UserSignin(values)).then((response) => {
       const data = response;
       const resMessage = data.payload.data.message;
       console.log("data", data);
-      if (resMessage === "Login successfull") {
-        navigate("/");
-      }
+      // if (resMessage === "Login successfull") {
+      //   navigate("/blog-page");
+      // }
+      setLoginMessage(resMessage);
     });
   };
+  useEffect(() => {
+    if (loginMessage === "Login successfull") {
+      navigate("/blog-page");
+    }
+  }, [loginMessage]);
 
   return (
     <Grid container spacing={4}>
