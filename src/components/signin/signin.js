@@ -46,17 +46,13 @@ const Signin = () => {
       const data = response;
       const resMessage = data.payload.data.message;
       console.log("data", data);
-      // if (resMessage === "Login successfull") {
-      //   navigate("/blog-page");
-      // }
+      if (resMessage === "Login successfull") {
+        navigate("/blog-page");
+        window.location.reload();
+      }
       setLoginMessage(resMessage);
     });
   };
-  useEffect(() => {
-    if (loginMessage === "Login successfull") {
-      navigate("/blog-page");
-    }
-  }, [loginMessage]);
 
   return (
     <Grid container spacing={4}>
