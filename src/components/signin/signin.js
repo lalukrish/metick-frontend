@@ -47,8 +47,7 @@ const Signin = () => {
       const resMessage = data.payload.data.message;
       console.log("data", data);
       if (resMessage === "Login successfull") {
-        navigate("/blog-page");
-        window.location.reload();
+        window.location.href = "/blog-page";
       }
       setLoginMessage(resMessage);
     });

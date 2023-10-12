@@ -4,7 +4,6 @@ import axios from "axios";
 export const SignupUser = createAsyncThunk(
   "auth/signup",
   async (userData, { rejectWithValue }) => {
-    console.log("api", api);
     try {
       const response = await axios.post(
         `${process.env.REACT_APP_NEXTTECH_DEV_URL}/user-signup`,

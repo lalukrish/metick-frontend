@@ -52,7 +52,7 @@ const TopNavbar = ({ handleDrawerToggle }) => {
 
   useEffect(() => {
     handleProfileImage();
-  }, []);
+  }, [profileImage]);
 
   return (
     <div>
