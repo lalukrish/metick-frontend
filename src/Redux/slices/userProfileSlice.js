@@ -5,6 +5,7 @@ export const userProfile = createAsyncThunk(
   "myProfile",
   async (_, { rejectWithValue }) => {
     const userId = localStorage.getItem("USER_ID");
+
     try {
       const response = await axios.get(
         `${process.env.REACT_APP_NEXTTECH_DEV_URL}/admin/get-one-user/${userId}`,

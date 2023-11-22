@@ -6,6 +6,7 @@ export const userProfilePicture = createAsyncThunk(
   "myprofilepic",
   async (_, { rejectWithValue }) => {
     const userId = localStorage.getItem("USER_ID");
+
     try {
       const response = await axios.get(
         `${process.env.REACT_APP_NEXTTECH_DEV_URL}/get-user-profile-image/${userId}`,

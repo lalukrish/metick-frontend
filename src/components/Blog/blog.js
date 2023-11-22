@@ -19,6 +19,7 @@ import {
   ChatBubbleOutline as ChatBubbleOutlineIcon,
   AddComment,
 } from "@mui/icons-material";
+import SimpleCard from "./Blogpage-topbar/blogPageTopbar";
 const BlogPage = () => {
   const navigate = useNavigate();
   const userid = localStorage.getItem("USER_ID");
@@ -129,6 +130,7 @@ const BlogPage = () => {
 
   return (
     <>
+      <SimpleCard />
       <MyPostCardModal
         modalOpen={modalOpen}
         handleModalClose={handleModalClose}
@@ -140,7 +142,7 @@ const BlogPage = () => {
         {post.map((posts) => (
           <Card style={{ marginBottom: "20px" }}>
             <Link
-              to={`/my-profile/${posts?.user?._id}`}
+              to={`/user-profile/${posts?.user?._id}`}
               onClick={() => handleProfileRoute(posts?.user?._id)}
               style={{ textDecoration: "none", color: "black" }}
             >

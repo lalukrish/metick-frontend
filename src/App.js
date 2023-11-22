@@ -9,6 +9,10 @@ import LatestYouGo from "./components/LatestYouGo/latest-you-go";
 import MyProfile from "./components/MyProfile/my-profile";
 import SignupPage from "./components/signup/signup";
 import Signin from "./components/signin/signin";
+import SettingsPage from "./components/settings/settingsPage";
+import SettingMainPage from "./components/settings/settingMainPage";
+import UserProfilePage from "./components/UserProfile/userProfilePage";
+import CourseDetailsPage from "./components/Courses/course-details-page";
 
 // ... (imports remain unchanged)
 
@@ -20,7 +24,7 @@ const App = () => {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-  const shouldRenderNavbars = !["/", "/signup"].includes(
+  const shouldRenderNavbars = !["/login", "/signup"].includes(
     window.location.pathname
   );
 
@@ -47,13 +51,18 @@ const App = () => {
         >
           <Toolbar />
           <Routes>
+            <Route path="/login" element={<Signin />} />
             <Route path="/blog-page" element={<BlogPage />} />
 
             <Route path="/start-career" element={<Dashboard />} />
             <Route path="/latest-you-go" element={<LatestYouGo />} />
             <Route path="/my-profile" element={<MyProfile />} />
             <Route path="/signup" element={<SignupPage />} />
-            <Route exact path="/" element={<Signin />} />
+            <Route path="" element={<Signin />} />
+            <Route path="/settings" element={<SettingMainPage />} />
+
+            <Route path="/user-profile/:id" element={<UserProfilePage />} />
+            <Route path="/course-details" element={<CourseDetailsPage />} />
           </Routes>
         </Box>
       </Box>

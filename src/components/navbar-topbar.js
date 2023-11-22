@@ -43,8 +43,8 @@ const TopNavbar = ({ handleDrawerToggle }) => {
   const [profileImage, setProfileImage] = useState(userProfileImage);
   const handleProfileImage = () => {
     dispatch(userProfilePicture()).then((response) => {
-      const data = response.payload.data.data.profile_image_url;
-      console.log("res", data);
+      const data = response.payload?.data?.data?.profile_image_url;
+      console.log("ImageAvi", data);
 
       setProfileImage(data);
     });
@@ -52,8 +52,10 @@ const TopNavbar = ({ handleDrawerToggle }) => {
 
   useEffect(() => {
     handleProfileImage();
-  }, [profileImage]);
+    console.log("working");
+  }, []);
 
+  console.log("myimage", profileImage);
   return (
     <div>
       <AppBar

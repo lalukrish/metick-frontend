@@ -47,12 +47,17 @@ const Signin = () => {
       const resMessage = data.payload.data.message;
       console.log("data", data);
       if (resMessage === "Login successfull") {
-        window.location.href = "/blog-page";
+        navigate("/blog-page");
       }
       setLoginMessage(resMessage);
     });
   };
-
+  // useEffect(() => {
+  //   if (singinResponseMessage === "Login successful") {
+  //     // Redirect to /blog-page programmatically
+  //     window.location.href = "/blog-page";
+  //   }
+  // }, [singinResponseMessage]);
   return (
     <Grid container spacing={4}>
       {/* Left Column (Image) */}

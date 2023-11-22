@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Card, Typography, Box, useTheme } from "@mui/material";
+import { Link } from "react-router-dom"; // Import the Link component
 
 export default function AppWidgetSummary({
   title,
@@ -32,23 +33,25 @@ export default function AppWidgetSummary({
       }}
       {...other}
     >
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          borderRadius: "50%",
-          width: 64,
-          height: 64,
-          margin: "auto",
-          marginBottom: 3,
-          color: "#103996",
-          backgroundColor: "#10399624",
-          boxShadow: "##919EAB20",
-        }}
-      >
-        {MuiIcon}
-      </Box>
+      <Link to="/course-details">
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            borderRadius: "50%",
+            width: 64,
+            height: 64,
+            margin: "auto",
+            marginBottom: 3,
+            color: "#103996",
+            backgroundColor: "#10399624",
+            boxShadow: "##919EAB20",
+          }}
+        >
+          {MuiIcon}
+        </Box>
+      </Link>
 
       <Typography variant="h3" sx={{ color: "black" }}>
         {total}
