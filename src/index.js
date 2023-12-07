@@ -5,7 +5,7 @@ import ReactDOM from "react-dom";
 
 import { createRoot } from "react-dom/client";
 //import dotenv from "dotenv";
-
+import "./index.css";
 import App from "./App";
 import { store } from "./Redux/store/store";
 //dotenv.config();
